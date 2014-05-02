@@ -26,5 +26,5 @@ class Pico_Draft {
 			}
 			exit; // stop everything!	
 		}	
-	}	
+	}
 }

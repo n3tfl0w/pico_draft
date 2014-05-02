@@ -18,7 +18,9 @@ class Pico_Draft {
 			// getting the payload, decoding it and saving to file system inside content dir
 			if ($_POST['payload']) {
 				// we have a request from Draft, let's save it to file
-				$payload = json_decode($_POST['payload']);
+				$data = $_REQUEST["payload"];           
+				$unescaped_data = stripslashes($data);
+				$payload = json_decode($unescaped_data);
 				$fileName = strtolower($payload->name) . CONTENT_EXT;
 				@file_put_contents(CONTENT_DIR . $fileName, $payload->content);
 			}
